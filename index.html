@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Product Selection</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(#A75D5D, #D3756B, #F0997D);
       margin: 0;
       display: flex;
       align-items: center;
@@ -18,10 +20,10 @@
     .product-container {
       opacity: 0;
       animation: fadeIn 1s ease-out forwards;
-      background-color: #fff;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      background: linear-gradient(45deg, #ff9a8b, #e69cdb);
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
       width: 300px;
       text-align: center;
     }
@@ -38,9 +40,28 @@
     }
 
     .logo {
-      width: 100%; 
-      max-width: 150px; 
+      width: 100%;
+      max-width: 150px;
       height: auto;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      transform-style: preserve-3d;
+      animation: rotateLogo 2s linear infinite;
+    }
+
+    @keyframes rotateLogo {
+      0% {
+        transform: rotateY(0deg);
+      }
+      100% {
+        transform: rotateY(360deg);
+      }
+    }
+
+    h2 {
+      color: #fff;
+      font-size: 24px;
       margin-bottom: 20px;
     }
 
@@ -52,30 +73,33 @@
       display: block;
       margin-bottom: 8px;
       font-weight: bold;
+      color: #ffffff;
     }
 
     .input-group select,
     .input-group input {
       width: 100%;
-      padding: 8px;
+      padding: 12px;
       box-sizing: border-box;
       border: 1px solid #ccc;
-      border-radius: 4px;
+      border-radius: 8px;
       margin-bottom: 10px;
+      font-size: 16px;
     }
 
     .submit-btn {
-      background-color: #4caf50;
+      background: linear-gradient(45deg, #3c8dbc, #217dbb);
       color: #fff;
-      padding: 10px 20px;
+      padding: 12px 20px;
       border: none;
-      border-radius: 4px;
+      border-radius: 8px;
       cursor: pointer;
-      transition: background-color 0.3s ease;
+      transition: background 0.3s ease;
+      font-size: 16px;
     }
 
     .submit-btn:hover {
-      background-color: #45a049;
+      background: linear-gradient(45deg, #326fa9, #1f619d);
     }
 
     .modal {
@@ -84,9 +108,9 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      background-color: #fff;
+      background: linear-gradient(45deg, #ff9a8b, #e69cdb);
       box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-      border-radius: 12px;
+      border-radius: 15px;
       max-width: 400px;
       width: 80%;
       padding: 20px;
@@ -96,89 +120,95 @@
     .modal p {
       font-size: 16px;
       line-height: 1.6;
+      color: #ffffff;
     }
 
     .modal button {
-      background-color: #4caf50;
+      background: linear-gradient(45deg, #3c8dbc, #217dbb);
       color: #fff;
-      padding: 10px 20px;
+      padding: 12px 20px;
       border: none;
-      border-radius: 4px;
+      border-radius: 8px;
       cursor: pointer;
+      font-size: 16px;
     }
   </style>
 </head>
+
 <body>
 
-<div class="product-container">
+  <div class="product-container">
 
-  <img class="logo" src="https://cdn.shopify.com/s/files/1/0282/0754/6402/files/50_x_70_cm-01.jpg?height=628&pad_color=efffed&v=1614777922&width=1200" alt="Edufun Logo">
+    <img class="logo"
+      src="https://cdn.shopify.com/s/files/1/0282/0754/6402/files/50_x_70_cm-01.jpg?height=628&pad_color=efffed&v=1614777922&width=1200"
+      alt="Edufun Logo">
 
-  <h2>Select Products</h2>
-  <form id="productForm">
-    <div class="input-group">
-      <label for="product">Product</label>
-      <select id="product" name="product" required>
-        <option value="deluxe-chair">Deluxe Chair</option>
-        <option value="dynamic-chair">Dynamic Chair</option>
-        <option value="dynamic-table">Dynamic Table</option>
-      </select>
-    </div>
+    <h2>Select Products</h2>
+    <form id="productForm">
+      <div class="input-group">
+        <label for="product">Product</label>
+        <select id="product" name="product" required>
+          <option value="deluxe-chair">Deluxe Chair</option>
+          <option value="dynamic-chair">Dynamic Chair</option>
+          <option value="dynamic-table">Dynamic Table</option>
+        </select>
+      </div>
 
-    <div class="input-group">
-      <label for="quantity">Quantity</label>
-      <input type="number" id="quantity" name="quantity" placeholder="Enter quantity" required>
-    </div>
+      <div class="input-group">
+        <label for="quantity">Quantity</label>
+        <input type="number" id="quantity" name="quantity" placeholder="Enter quantity" required>
+      </div>
 
-    <button type="button" class="submit-btn" onclick="submitForm()">Submit</button>
-  </form>
-</div>
+      <button type="button" class="submit-btn" onclick="submitForm()">Submit</button>
+    </form>
+  </div>
 
-<div id="myModal" class="modal">
-  <p id="modalMessage"></p>
-  <button onclick="closeModal()">Close</button>
-</div>
+  <div id="myModal" class="modal">
+    <p id="modalMessage"></p>
+    <button onclick="closeModal()">Close</button>
+  </div>
 
-<script>
-  function submitForm() {
-    var selectedProduct = document.getElementById('product').value;
-    var quantityInput = document.getElementById('quantity');
-    var quantity = parseInt(quantityInput.value, 10);
+  <script>
+    function submitForm() {
+      var selectedProduct = document.getElementById('product').value;
+      var quantityInput = document.getElementById('quantity');
+      var quantity = parseInt(quantityInput.value, 10);
 
-    if (isNaN(quantity) || quantity <= 0) {
-      openModal('Please enter a valid positive integer for quantity.');
-      quantityInput.value = ''; 
-      return;
-    }
-
-    var timeRate;
-
-    switch (selectedProduct) {
-      case 'deluxe-chair':
-        timeRate = ((((1058.2 / 60) / 60) / 8) / 26) * quantity;
-        break;
-      case 'dynamic-chair':
-        break;
-      case 'dynamic-table':
-        timeRate = ((((8462.8 / 60) / 60) / 8) / 26) * quantity;
-        break;
-      default:
-        openModal('Invalid product selection.');
+      if (isNaN(quantity) || quantity <= 0) {
+        openModal('Please enter a valid positive integer for quantity.');
+        quantityInput.value = '';
         return;
+      }
+
+      var timeRate;
+
+      switch (selectedProduct) {
+        case 'deluxe-chair':
+          timeRate = ((((1058.2 / 60) / 60) / 8) / 26) * quantity;
+          break;
+        case 'dynamic-chair':
+          break;
+        case 'dynamic-table':
+          timeRate = ((((8462.8 / 60) / 60) / 8) / 26) * quantity;
+          break;
+        default:
+          openModal('Invalid product selection.');
+          return;
+      }
+      openModal('Product: ' + selectedProduct + '<br>Quantity: ' + quantity + '<br>Time Rate: ' + timeRate.toFixed(2) + ' hours');
     }
-    openModal('Product: ' + selectedProduct + '<br>Quantity: ' + quantity + '<br>Time Rate: ' + timeRate.toFixed(4) + ' hours');
-  }
 
-  function openModal(message) {
-    document.getElementById('myModal').style.display = 'block';
+    function openModal(message) {
+      document.getElementById('myModal').style.display = 'block';
 
-    document.getElementById('modalMessage').innerHTML = message;
-  }
+      document.getElementById('modalMessage').innerHTML = message;
+    }
 
-  function closeModal() {
-    document.getElementById('myModal').style.display = 'none';
-  }
-</script>
+    function closeModal() {
+      document.getElementById('myModal').style.display = 'none';
+    }
+  </script>
 
 </body>
+
 </html>
