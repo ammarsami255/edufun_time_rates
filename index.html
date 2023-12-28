@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Selection</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .product-container {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      width: 300px;
+      text-align: center;
+    }
+
+    .logo {
+      width: 100%; 
+      max-width: 150px; 
+      height: auto;
+      margin-bottom: 20px;
+    }
+
+    .input-group {
+      margin-bottom: 20px;
+    }
+
+    .input-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+    }
+
+    .input-group select,
+    .input-group input {
+      width: 100%;
+      padding: 8px;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      margin-bottom: 10px;
+    }
+
+    .submit-btn {
+      background-color: #4caf50;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #fff;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+      border-radius: 12px;
+      max-width: 400px;
+      width: 80%;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .modal p {
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .modal button {
+      background-color: #4caf50;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<div class="product-container">
+  <img class="logo" src="https://cdn.shopify.com/s/files/1/0282/0754/6402/files/50_x_70_cm-01.jpg?height=628&pad_color=efffed&v=1614777922&width=1200" alt="Edufun Logo">
+
+  <h2>Select Products</h2>
+  <form id="productForm">
+    <div class="input-group">
+      <label for="product">Product</label>
+      <select id="product" name="product" required>
+        <option value="deluxe-chair">Deluxe Chair</option>
+        <option value="dynamic-chair">Dynamic Chair</option>
+        <option value="dynamic-table">Dynamic Table</option>
+      </select>
+    </div>
+
+    <div class="input-group">
+      <label for="quantity">Quantity</label>
+      <input type="number" id="quantity" name="quantity" placeholder="Enter quantity" required>
+    </div>
+
+    <button type="button" class="submit-btn" onclick="submitForm()">Submit</button>
+  </form>
+</div>
+
+<div id="myModal" class="modal">
+  <p id="modalMessage"></p>
+  <button onclick="closeModal()">Close</button>
+</div>
+
+<script>
+  function submitForm() {
+    var selectedProduct = document.getElementById('product').value;
+    var quantityInput = document.getElementById('quantity');
+    var quantity = parseInt(quantityInput.value, 10);
+
+    if (isNaN(quantity) || quantity <= 0) {
+      openModal('Please enter a valid positive integer for quantity.');
+      quantityInput.value = '';
+      return;
+    }
+
+    var timeRate;
+
+    switch (selectedProduct) {
+      case 'deluxe-chair':
+        timeRate = ((((578.2 / 60) / 60) / 8) / 26) * quantity;
+        break;
+      case 'dynamic-chair':
+        break;
+      case 'dynamic-table':
+        timeRate = ((((8462.8 / 60) / 60) / 8) / 26) * quantity;
+        break;
+      default:
+        openModal('Invalid product selection.');
+        return;
+    }
+
+    openModal('Product: ' + selectedProduct + '<br>Quantity: ' + quantity + '<br>Time Rate: ' + timeRate.toFixed(2) + ' hours');
+  }
+
+  function openModal(message) {
+
+    document.getElementById('myModal').style.display = 'block';
+
+    document.getElementById('modalMessage').innerHTML = message;
+  }
+
+  function closeModal() {
+    document.getElementById('myModal').style.display = 'none';
+  }
+</script>
+
+</body>
+</html>
