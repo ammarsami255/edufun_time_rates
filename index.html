@@ -16,12 +16,25 @@
     }
 
     .product-container {
+      opacity: 0;
+      animation: fadeIn 1s ease-out forwards;
       background-color: #fff;
       padding: 20px;
       border-radius: 8px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
       width: 300px;
       text-align: center;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     .logo {
@@ -58,6 +71,11 @@
       border: none;
       border-radius: 4px;
       cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .submit-btn:hover {
+      background-color: #45a049;
     }
 
     .modal {
@@ -93,6 +111,7 @@
 <body>
 
 <div class="product-container">
+
   <img class="logo" src="https://cdn.shopify.com/s/files/1/0282/0754/6402/files/50_x_70_cm-01.jpg?height=628&pad_color=efffed&v=1614777922&width=1200" alt="Edufun Logo">
 
   <h2>Select Products</h2>
@@ -128,7 +147,7 @@
 
     if (isNaN(quantity) || quantity <= 0) {
       openModal('Please enter a valid positive integer for quantity.');
-      quantityInput.value = '';
+      quantityInput.value = ''; 
       return;
     }
 
@@ -147,12 +166,10 @@
         openModal('Invalid product selection.');
         return;
     }
-
-    openModal('Product: ' + selectedProduct + '<br>Quantity: ' + quantity + '<br>Time Rate: ' + timeRate.toFixed(2) + ' hours');
+    openModal('Product: ' + selectedProduct + '<br>Quantity: ' + quantity + '<br>Time Rate: ' + timeRate.toFixed(4) + ' hours');
   }
 
   function openModal(message) {
-
     document.getElementById('myModal').style.display = 'block';
 
     document.getElementById('modalMessage').innerHTML = message;
