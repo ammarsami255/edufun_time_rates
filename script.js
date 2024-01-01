@@ -15,6 +15,9 @@ function submitForm() {
         case 'deluxe-chair':
             timeRate = ((((3026.7 / 60) / 60) / 8) / 26) * quantity;
             break;
+        case 'simple-chair':
+            timeRate = ((((420 / 60) / 60) / 8) / 26) * quantity;
+            break;
         case 'dynamic-chair':
             break;
         case 'dynamic-table':
@@ -24,7 +27,7 @@ function submitForm() {
             openModal('Invalid product selection.');
             return;
     }
-    openModal('Product: ' + selectedProduct + '<br>Quantity: ' + quantity + '<br>Time Rate: ' + timeRate.toFixed(2) + ' hours');
+    openModal('Product: ' + selectedProduct + '<br>Quantity: ' + quantity + '<br>Time Rate: ' + timeRate.toFixed(2) + ' days ');
 }
 
 function openModal(message) {
