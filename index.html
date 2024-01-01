@@ -1,41 +1,51 @@
-function submitForm() {
-    var selectedProduct = document.getElementById('product').value;
-    var quantityInput = document.getElementById('quantity');
-    var quantity = parseInt(quantityInput.value, 10);
 
-    if (isNaN(quantity) || quantity <= 0) {
-        openModal('Please enter a valid positive integer for quantity.');
-        quantityInput.value = '';
-        return;
-    }
+<!DOCTYPE html>
+<html lang="en">
 
-    var timeRate;
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Selection</title>
+  <link rel="stylesheet" href="style.css">
 
-    switch (selectedProduct) {
-        case 'deluxe-chair':
-            timeRate = ((((3026.7 / 60) / 60) / 8) / 26) * quantity;
-            break;
-        case 'simple-chair':
-            timeRate = ((((420 / 60) / 60) / 8) / 26) * quantity;
-            break;
-        case 'dynamic-chair':
-            break;
-        case 'dynamic-table':
-            timeRate = ((((8462.8 / 60) / 60) / 8) / 26) * quantity;
-            break;
-        default:
-            openModal('Invalid product selection.');
-            return;
-    }
-    openModal('Product: ' + selectedProduct + '<br>Quantity: ' + quantity + '<br>Time Rate: ' + timeRate.toFixed(2) + ' days ');
-}
+</head>
 
-function openModal(message) {
-    document.getElementById('myModal').style.display = 'block';
+<body>
 
-    document.getElementById('modalMessage').innerHTML = message;
-}
+  <div class="product-container">
 
-function closeModal() {
-    document.getElementById('myModal').style.display = 'none';
-}
+    <img class="logo"
+      src="https://cdn.shopify.com/s/files/1/0282/0754/6402/files/50_x_70_cm-01.jpg?height=628&pad_color=efffed&v=1614777922&width=1200"
+      alt="Edufun Logo">
+
+    <h2>Select Products</h2>
+    <form id="productForm">
+      <div class="input-group">
+        <label for="product">Product</label>
+        <select id="product" name="product" required>
+          <option value="deluxe-chair">Deluxe Chair</option>
+          <option value="simple-chair">Simple Chair</option>
+          <option value="dynamic-chair">Dynamic Chair</option>
+          <option value="dynamic-table">Dynamic Table</option>
+        </select>
+      </div>
+
+      <div class="input-group">
+        <label for="quantity">Quantity</label>
+        <input type="number" id="quantity" name="quantity" placeholder="Enter quantity" required>
+      </div>
+
+      <button type="button" class="submit-btn" onclick="submitForm()">Submit</button>
+    </form>
+  </div>
+
+  <div id="myModal" class="modal">
+    <p id="modalMessage"></p>
+    <button onclick="closeModal()">Close</button>
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
+
+</html>
