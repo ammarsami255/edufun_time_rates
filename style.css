@@ -1,6 +1,6 @@
 body {
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(#A75D5D, #D3756B, #F0997D);
+    background: rgb(102, 134, 90);
     margin: 0;
     display: flex;
     align-items: center;
@@ -11,7 +11,7 @@ body {
 .product-container {
     opacity: 0;
     animation: fadeIn 1s ease-out forwards;
-    background: linear-gradient(45deg, #ff9a8b, #e69cdb);
+    background: #71f659;
     padding: 40px;
     border-radius: 15px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
@@ -81,7 +81,7 @@ h2 {
 }
 
 .submit-btn {
-    background: linear-gradient(45deg, #3c8dbc, #217dbb);
+    background: rgb(145, 145, 214);
     color: #fff;
     padding: 12px 20px;
     border: none;
@@ -101,7 +101,7 @@ h2 {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: linear-gradient(45deg, #ff9a8b, #e69cdb);
+    background: #71f659;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
     border-radius: 15px;
     max-width: 400px;
