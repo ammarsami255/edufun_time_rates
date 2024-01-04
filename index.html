@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Selection</title>
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+  <div class="product-container">
+
+    <img class="logo"
+      src="https://cdn.shopify.com/s/files/1/0282/0754/6402/files/50_x_70_cm-01.jpg?height=628&pad_color=efffed&v=1614777922&width=1200"
+      alt="Edufun Logo">
+
+    <h2>Select Products</h2>
+    <form id="productForm">
+      <div class="input-group">
+        <label for="product">Product</label>
+        <select id="product" name="product" required>
+          <option value="deluxe-chair">Deluxe Chair</option>
+          <option value="simple-chair">Simple Chair</option>
+          <option value="dynamic-chair">Dynamic Chair</option>
+          <option value="dynamic-table">Dynamic Table</option>
+        </select>
+      </div>
+
+      <div class="input-group">
+        <label for="quantity">Quantity</label>
+        <input type="number" id="quantity" name="quantity" placeholder="Enter quantity" required>
+      </div>
+
+      <button type="button" class="submit-btn" onclick="submitForm()">Submit</button>
+    </form>
+  </div>
+
+  <div id="myModal" class="modal">
+    <p id="modalMessage"></p>
+    <button onclick="closeModal()">Close</button>
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
+
+</html>
