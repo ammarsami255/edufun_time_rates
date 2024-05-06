@@ -21,7 +21,10 @@ function submitForm() {
         case 'dynamic-chair':
             break;
         case 'dynamic-table':
-            timeRate = ((((8462.8 / 60) / 60) / 8) / 26) * quantity;
+            timeRate = ((((8462.8/ 60) / 60) / 8) / 26) * quantity;
+            break;
+            case 'cantiliver':
+            timeRate = ((((6300/ 60) / 60) / 8) / 26) * quantity;
             break;
         default:
             openModal('Invalid product selection.');
