@@ -23,7 +23,7 @@ function submitForm() {
         case 'dynamic-table':
             timeRate = ((((8462.8/ 60) / 60) / 8) / 26) * quantity;
             break;
-            case 'cantilever':
+        case 'cantilever':
             timeRate = ((((6300/ 60) / 60) / 8) / 26) * quantity;
             break;
         default:
