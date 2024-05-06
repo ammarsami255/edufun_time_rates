@@ -13,10 +13,10 @@ function submitForm() {
 
     switch (selectedProduct) {
         case 'deluxe-chair':
-            timeRate = ((((3026.7 / 60) / 60) / 8) / 26) * quantity;
+            timeRate = ((((5336.582353/ 60) / 60) / 8) / 26) * quantity;
             break;
         case 'simple-chair':
-            timeRate = ((((420 / 60) / 60) / 8) / 26) * quantity;
+            timeRate = ((((2340/ 60) / 60) / 8) / 26) * quantity;
             break;
         case 'dynamic-chair':
             break;
